@@ -4,41 +4,68 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>My Movie Database</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="scss/main.scss">
 </head>
+
+<!-- <div class="container">
+    <div class="header"></div>
+    <div class="leftmargin"></div>
+    <div class="rightmargin"></div>
+    <div class="form_entry"></div>
+    <div class="data_display"></div>
+    <div class="data_list"></div>
+  </div> -->
 
 <body>
 
   <header>
-    <h1>Task Tracker</h1>
-    <form id="taskform">
+    <h1>My Movie Database</h1>
+    <form id="filmform">
       <div class="'form-row">
-        <label for="taskName">Name</label>
-        <input type="text" name="taskName" id="taskName" required="true">
+        <label for="filmName">Name</label>
+        <input type="text" name="filmName" id="filmName" required="true">
       </div>
       <div class="'form-row">
-        <label for="taskType">Type</label>
-        <input type="text" name="taskType" id="taskType" required="true">
+        <label for="filmGenre">Genre</label>
+        <input type="text" name="filmGenre" id="filmGenre" required="true">
       </div>
       <div class="'form-row">
-        <label for="taskRate">Rate</label>
-        <input type="number" name="taskRate" id="taskRate" required="true">
+        <label for="filmRating">Rating</label>
+        <input list="rating" name="filmRating" id="filmRating" required="true">
+        <datalist id="rating">
+            <option value="E">
+            <option value="G">
+            <option value="PG">
+            <option value="M">
+            <option value="MA15+">
+            <option value="R18+">
+            <option value="X18+">
+        </datalist>
       </div>
       <div class="'form-row">
-        <label for="taskTime">Time</label>
-        <input type="number" name="taskTime" id="taskTime" required="true">
+        <label for="filmLength">Length</label>
+        <input type="number" name="filmLength" id="filmLength" required="true">
       </div>
       <div class="'form-row">
-        <label for="taskClient">Client</label>
-        <input type="text" name="taskClient" id="taskClient" required="true">
+        <label for="filmRelease">Release</label>
+        <input type="number" name="filmRelease" id="filmRelease" required="true">
+      </div>
+      <div class="'form-row">
+        <label for="filmScore">Score</label>
+        <input type="number" name="filmScore" id="filmScore" required="true">
+      </div>
+      <div class="'form-row">
+        <label for="filmWatch">Watched</label>
+        <input type="text" name="filmWatch" id="filmWatch" required="true">
       </div>
       <div class="form-row">
         <input type="submit">
       </div>
     </form>
     <h2>Tasks</h2>
-      <ul id="tasklist">
+      <ul id="filmlist">
     </ul>
   </header>
 

@@ -3,6 +3,31 @@ html {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  /* .container {  display: grid;
+    grid-template-columns: 1fr 4fr 6fr 1fr;
+    grid-template-rows: 1fr 5fr 5fr;
+    grid-auto-columns: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "leftmargin header header rightmargin"
+      "leftmargin form_entry data_list rightmargin"
+      "leftmargin data_display data_list rightmargin";
+  }
+  
+  .header { grid-area: header; }
+  
+  .leftmargin { grid-area: leftmargin; }
+  
+  .rightmargin { grid-area: rightmargin; }
+  
+  .form_entry { grid-area: form_entry; }
+  
+  .data_display { grid-area: data_display; }
+  
+  .data_list { grid-area: data_list; } */
+  
                   
   header > h1 {
     text-align: center;

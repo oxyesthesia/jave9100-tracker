@@ -1,18 +1,21 @@
-const form = document.getElementById("taskform");
-const tasklist = document.getElementById("tasklist");
+// https://wireframe.cc/NhGNXP
+
+//COMMAND + C TO TERMINATE
+
+const form = document.getElementById("filmform");
+const filmlist = document.getElementById("filmlist");
 
 form.addEventListener("submit", function(event) {
   event.preventDefault();
-  //handle the event here
-  addTask(form.elements.taskName.value, form.elements.taskType.value, form.elements.taskRate.value, form.elements.taskTime.value, form.elements.taskClient.value);
-  // console.log(taskList);
+  addFilm(form.elements.filmName.value, form.elements.filmGenre.value, form.elements.filmRating.value, form.elements.filmLength.value, form.elements.filmRelease.value, form.elements.filmScore.value, form.elements.filmWatch.value);
+  console.log(filmList);
 })
 
-function displayTask(task) {
+function displayFilm(film) {
   let item = document.createElement("li");
-  item.setAttribute("data-id", task.id);
-  item.innerHTML =`<p><strong>${task.name}</strong><br>${task.type}</p>`;
-  tasklist.appendChild(item);
+  item.setAttribute("data-id", film.id);
+  item.innerHTML =`<p><strong>${film.name}</strong><br>${film.genre}<br>${film.rating}<br>${film.length}<br>${film.release}<br>${film.score}<br>${film.watch}</p>`;
+  filmlist.appendChild(item);
   form.reset();
   // Setup delete button DOM elements
   let delButton = document.createElement("button");
@@ -25,53 +28,36 @@ function displayTask(task) {
     // Because we used 'let' to define the item, this will delete the right element
     
     // Filter out the element corresponding with the list item and store the new task list
-    taskList = taskList.filter( task => task.id != item.getAttribute('data-id') )
+    filmList = filmList.filter( film => film.id != item.getAttribute('data-id') )
   
     // Make sure the deletion worked by logging out the whole array
-    // console.log(taskList)
+    // console.log(filmList)
   })
 }
 
-
-
-// Create an object called 'task'
-  // Populate the properties based on the provided data model
-// Create a function called 'addTask'
-  // Give the function input parameters for: name, type, rate, time, client
-  // Paste your object definition from above in the function
-  // Replace the property values with the input paramaters
-  // Add the object to the taskList array
-
-class Task {
-  constructor(name ,type, id, date, rate, time, client) {
+class Film {
+  constructor(name, genre, rating, length, release, score, watch, id, date) {
     this.name = name;
-    this.type = type;
+    this.genre = genre;
+    this.rating = rating;
+    this.length = length;
+    this.release = release;
+    this.score = score;
+    this.watch = watch;
     this.id = id;
     this.date = date;
-    this.rate = rate;
-    this.time = time;
-    this.client = client;
   }
 }
 
-taskList = [];
+filmList = [];
 
-function addTask(name, type, rate, time, client) {
-  var newTask = new Task(name, type, Date.now(), new Date().toISOString(), rate, time, client);
-  taskList.push(newTask);
-  displayTask(newTask);
+function addFilm(name, genre, rating, length, release, score, watch) {
+  var newFilm = new Film(name, genre, "resources/Classification" + rating + ".png", length, release, score, watch, new Date().toISOString(), Date.now(),);
+  filmList.push(newFilm);
+  displayFilm(newFilm);
 }
 
-addTask("Initial Sketches", "Concept Ideation", 30, 2, "Google");
-// addTask("Home page design", "Wireframe Design", 45, 5, "Atlassian");
-// addTask("Backend dev", "Application Coding", 80, 12, "Windows");
-// addTask("Database testing", "Testing/Debugging", 60, 15, "Amazon");
-// addTask("User research", "Pitch deck", 50, 38, "Woolworths");
+addFilm("Kill Bill", "Action", "M", 108, 2012, 4, "12/4/24");
 
-// console.log(taskList);
-
-// Call the function with test values for the input paramaters
-
-
-
-// Log the array to the console.
+//delete when complete
+console.log(filmList);
