@@ -28,7 +28,7 @@ header > h1 {
 
 .form_entry { 
   grid-area: form_entry; 
-  /* max-width: 500px; */
+  max-width: 500px;
   margin: 0 auto;
   border: 2px solid grey;
   padding: 2em 1em;
