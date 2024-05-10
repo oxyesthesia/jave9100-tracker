@@ -49,15 +49,60 @@ class Film {
   }
 }
 
+function addToList(film) {
+    let filmList = JSON.parse(localStorage.getItem('filmList'))
+
+  if (filmList == null) {
+    filmList = [film]
+  } else {
+    filmList.push(film.name)
+  } updateList;
+}
+
+function updateList() {
+  let list = document.querySelector("aside ul");
+  list.innerHTML = "";
+
+  let filmList = JSON.parse(localStorage.getItem('filmList'))
+
+  if (filmList !== null){
+    filmList.forEach(() => {
+      console.log("active");
+      let listItem = document.createElement("li");
+      item.setAttribute("data-id", film.id);
+      item.innerHTML =`<p><strong>${film.name}</strong><br>${film.genre}<br>${film.rating}<br>${film.length}<br>${film.release}<br>${film.score}<br>${film.watch}</p>`;
+      filmlist.appendChild(item);
+      form.reset();
+      // Setup delete button DOM elements
+      let delButton = document.createElement("button");
+      let delButtonText = document.createTextNode("Delete");
+      delButton.appendChild(delButtonText);
+      item.appendChild(delButton); // Adds a delete button to every task
+      // Listen for when the delete button is clicked
+      delButton.addEventListener("click", function(event) {
+        item.remove(); // Remove the task item from the page when button clicked
+        // Because we used 'let' to define the item, this will delete the right element
+        
+        // Filter out the element corresponding with the list item and store the new task list
+        filmList = filmList.filter( film => film.id != item.getAttribute('data-id') )
+      
+        // Make sure the deletion worked by logging out the whole array
+        // console.log(filmList)
+      })
+    })
+  }
+}
+
 filmList = [];
 
 function addFilm(name, genre, rating, length, release, score, watch) {
   var newFilm = new Film(name, genre, "resources/Classification" + rating + ".png", length, release, score, watch, new Date().toISOString(), Date.now(),);
   filmList.push(newFilm);
-  displayFilm(newFilm);
+  addToList(newFilm);
 }
 
 addFilm("Kill Bill", "Action", "M", 108, 2012, 4, "12/4/24");
 
-//delete when complete
 console.log(filmList);
+localStorage.setItem('filmList', JSON.stringify(filmList));
+updateList();
